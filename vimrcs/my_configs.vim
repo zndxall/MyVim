@@ -1,15 +1,17 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-autoformat
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:formatterpath = ['/usr/bin', '']
-au BufWrite * :Autoformat  "when you save file, it will auto format your file.
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 1
-let g:formatdef_jian = '"astyle --style=google --indent=spaces=2 --indent=tab=2 -o -xk -xf -xh -xG -H -j -p -W1 -k1 -w -K -xW -c -Y -M -z2"'
-let g:formatters_cpp = ['jian']
-let g:formatters_c = ['jian']
+"let g:formatterpath = ['/usr/bin', '']
+"au BufWrite * :Autoformat  "when you save file, it will auto format your file.
+"let g:autoformat_autoindent = 0
+"let g:autoformat_retab = 0
+"let g:autoformat_remove_trailing_spaces = 1
+"let g:formatdef_jian = '"astyle --style=google --indent=spaces=2 --indent=tab=2 -o -xk -xf -xh -xG -H -j -p -W1 -k1 -w -K -xW -c -Y -M -z2"'
+"let g:formatters_cpp = ['jian']
+"let g:formatters_c = ['jian']
 
+
+set colorcolumn=81,161,241,321,401,481,561,641,721,801
 
 set background=dark
 colorscheme solarized
@@ -34,4 +36,12 @@ noremap <leader>yd :<C-u>Yde<CR>
 
 nnoremap <leader>jg :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
+let g:rustfmt_autosave = 1
 
+set hidden
+let g:racer_cmd = "/home/huangjian/.cargo/bin/racer"
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)

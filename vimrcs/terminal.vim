@@ -4,3 +4,4 @@ if has("terminal")
   tnoremap <C-h> <C-W>h
   tnoremap <C-l> <C-W>l
 endif
+
